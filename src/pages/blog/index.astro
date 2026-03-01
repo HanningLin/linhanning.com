@@ -1,0 +1,27 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import BlogCard from "../../components/BlogCard.astro";
+
+const posts = (await getCollection("blog"))
+  .filter((post) => !post.data.draft)
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+---
+
+<BaseLayout title="Blog — Hanning Lin" description="Thoughts on software engineering, web development, and more.">
+  <h1 class="text-3xl font-extrabold tracking-tight">Blog</h1>
+  <p class="mt-2 text-text-secondary">Thoughts on software engineering, web development, and more.</p>
+  <div class="mt-8 grid gap-4">
+    {
+      posts.map((post) => (
+        <BlogCard
+          title={post.data.title}
+          description={post.data.description}
+          pubDate={post.data.pubDate}
+          tags={post.data.tags}
+          slug={post.id}
+        />
+      ))
+    }
+  </div>
+</BaseLayout>

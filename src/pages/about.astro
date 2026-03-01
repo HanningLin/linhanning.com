@@ -1,0 +1,61 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const skills = [
+  "TypeScript",
+  "JavaScript",
+  "React",
+  "Node.js",
+  "Python",
+  "Astro",
+  "Tailwind CSS",
+  "PostgreSQL",
+  "Git",
+  "Docker",
+];
+---
+
+<BaseLayout title="About — Hanning Lin" description="Learn more about Hanning Lin — background, skills, and interests.">
+  <div class="mx-auto max-w-[72ch]">
+    <h1 class="text-3xl font-extrabold tracking-tight">About Me</h1>
+
+    <div class="prose mt-6">
+      <p>
+        Hi! I'm Hanning, a software engineer who enjoys building things for the web.
+        I'm passionate about creating well-crafted software and sharing what I learn along the way.
+      </p>
+      <p>
+        I'm particularly interested in web technologies, developer tools, and systems that are both
+        powerful and pleasant to use. When I'm not writing code, you can find me exploring new
+        technologies, reading, or working on side projects.
+      </p>
+      <p>
+        This site is where I write about software engineering, share my projects, and document
+        things I find interesting. Feel free to reach out if you'd like to connect!
+      </p>
+    </div>
+
+    <h2 class="mt-12 text-2xl font-bold">Skills & Technologies</h2>
+    <div class="mt-4 flex flex-wrap gap-2">
+      {
+        skills.map((skill) => (
+          <span class="rounded-lg border border-border bg-bg-secondary px-3 py-1.5 text-sm font-medium text-text-secondary">
+            {skill}
+          </span>
+        ))
+      }
+    </div>
+
+    <h2 class="mt-12 text-2xl font-bold">Get in Touch</h2>
+    <p class="mt-3 text-text-secondary">
+      You can find me on{" "}
+      <a href="https://github.com/hanninglin" class="text-accent hover:text-accent-hover transition-colors">
+        GitHub
+      </a>{" "}
+      and{" "}
+      <a href="https://linkedin.com/in/hanninglin" class="text-accent hover:text-accent-hover transition-colors">
+        LinkedIn
+      </a>.
+    </p>
+  </div>
+</BaseLayout>

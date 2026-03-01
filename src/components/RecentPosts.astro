@@ -1,0 +1,31 @@
+---
+import { getCollection } from "astro:content";
+import BlogCard from "./BlogCard.astro";
+
+const posts = (await getCollection("blog"))
+  .filter((post) => !post.data.draft)
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  .slice(0, 3);
+---
+
+<section>
+  <div class="flex items-center justify-between">
+    <h2 class="text-2xl font-bold">Recent Posts</h2>
+    <a href="/blog" class="text-sm font-medium text-accent hover:text-accent-hover transition-colors">
+      View all &rarr;
+    </a>
+  </div>
+  <div class="mt-4 grid gap-4">
+    {
+      posts.map((post) => (
+        <BlogCard
+          title={post.data.title}
+          description={post.data.description}
+          pubDate={post.data.pubDate}
+          tags={post.data.tags}
+          slug={post.id}
+        />
+      ))
+    }
+  </div>
+</section>
