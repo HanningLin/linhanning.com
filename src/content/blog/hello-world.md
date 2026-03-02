@@ -5,7 +5,7 @@ pubDate: 2026-03-01
 tags: ["personal", "web development"]
 ---
 
-Welcome to my blog! I'm Hanning, and this is the very first post on my new personal website.
+Welcome to my blog! I'm Liam, and this is the very first post on my new personal website.
 
 ## Why I built this site
 
