@@ -1,43 +1,99 @@
-# Astro Starter Kit: Minimal
+# linhanning.com
+
+Personal blog and portfolio for Liam Lin, built with Astro and Tailwind CSS.
+
+The site is content-first: long-form writing lives in `src/content/blog`, while the UI is implemented with Astro components and shared layouts.
+
+## Stack
+
+- Astro 5
+- Tailwind CSS 4 via `@tailwindcss/vite`
+- MDX support via `@astrojs/mdx`
+- Sitemap generation via `@astrojs/sitemap`
+- RSS feed via `src/pages/rss.xml.ts`
+
+## Local Development
+
+Install dependencies:
 
 ```sh
-npm create astro@latest -- --template minimal
+npm install
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+Start the dev server:
 
-## 🚀 Project Structure
+```sh
+npm run dev
+```
 
-Inside of your Astro project, you'll see the following folders and files:
+Build the production site:
+
+```sh
+npm run build
+```
+
+Preview the built output:
+
+```sh
+npm run preview
+```
+
+## Project Structure
 
 ```text
 /
 ├── public/
+│   ├── avatar-liam.jpeg
+│   ├── favicon.ico
+│   ├── favicon.png
+│   └── ...
 ├── src/
-│   └── pages/
-│       └── index.astro
+│   ├── components/
+│   ├── content/
+│   │   └── blog/
+│   ├── data/
+│   ├── layouts/
+│   ├── pages/
+│   └── styles/
+├── astro.config.mjs
 └── package.json
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## Content
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+Blog posts are loaded from `src/content/blog` and validated by `src/content.config.ts`.
 
-Any static assets, like images, can be placed in the `public/` directory.
+Each post supports:
 
-## 🧞 Commands
+- `title`
+- `description`
+- `pubDate`
+- `updatedDate`
+- `tags`
+- `heroImage`
+- `draft`
 
-All commands are run from the root of the project, from a terminal:
+Draft posts are excluded from the public blog index.
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+## Main Entry Points
 
-## 👀 Want to learn more?
+- Home page: `src/pages/index.astro`
+- Blog index: `src/pages/blog/index.astro`
+- Blog post layout: `src/layouts/BlogPostLayout.astro`
+- Global shell: `src/layouts/BaseLayout.astro`
+- Global styles: `src/styles/global.css`
+- Shared metadata and favicon tags: `src/components/BaseHead.astro`
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+## Branding Notes
+
+- The current favicon assets are `public/favicon.png` and `public/favicon.ico`
+- The source avatar image used for the favicon is `public/avatar-liam.jpeg`
+- `src/components/BaseHead.astro` is the source of truth for favicon links and metadata tags
+
+## Site Metadata
+
+The production site URL is configured in `astro.config.mjs`:
+
+```js
+site: "https://linhanning.com"
+```
