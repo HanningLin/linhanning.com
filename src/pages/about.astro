@@ -16,10 +16,16 @@ const skills = [
 ---
 
 <BaseLayout title="About — Liam Lin" description="Learn more about Liam Lin — background, skills, and interests.">
-  <div class="mx-auto max-w-[72ch]">
-    <h1 class="text-3xl font-extrabold tracking-tight">About Me</h1>
+  <div class="mx-auto max-w-5xl">
+    <section class="panel px-6 py-7 sm:px-8 sm:py-8">
+      <p class="section-kicker">About</p>
+      <h1 class="display-title mt-4 text-5xl sm:text-6xl">Engineer, builder, and a little too obsessed with good tooling.</h1>
+      <p class="lead mt-5 max-w-3xl">
+        I care about software that feels intentional, fast, and worth returning to. This site is the public notebook around that work.
+      </p>
+    </section>
 
-    <div class="prose mt-6">
+    <div class="prose mt-10">
       <p>
         Hi! I'm Liam (Hanning), a software engineer who enjoys building things for the web.
         I'm passionate about creating well-crafted software and sharing what I learn along the way.
@@ -35,18 +41,18 @@ const skills = [
       </p>
     </div>
 
-    <h2 class="mt-12 text-2xl font-bold">Skills & Technologies</h2>
-    <div class="mt-4 flex flex-wrap gap-2">
+    <h2 class="section-title mt-14">Skills & Technologies</h2>
+    <div class="mt-5 flex flex-wrap gap-2">
       {
         skills.map((skill) => (
-          <span class="rounded-lg border border-border bg-bg-secondary px-3 py-1.5 text-sm font-medium text-text-secondary">
+          <span class="chip">
             {skill}
           </span>
         ))
       }
     </div>
 
-    <h2 class="mt-12 text-2xl font-bold">Get in Touch</h2>
+    <h2 class="section-title mt-14">Get in Touch</h2>
     <p class="mt-3 text-text-secondary">
       You can find me on{" "}
       <a href="https://github.com/hanninglin" class="text-accent hover:text-accent-hover transition-colors">

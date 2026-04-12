@@ -6,20 +6,35 @@ import BlogCard from "../../components/BlogCard.astro";
 const posts = (await getCollection("blog"))
   .filter((post) => !post.data.draft)
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
+const featuredTags = [...new Set(posts.flatMap((post) => post.data.tags))].slice(0, 5);
 ---
 
 <BaseLayout title="Blog — Liam Lin" description="Thoughts on software engineering, web development, and more.">
-  <h1 class="text-3xl font-extrabold tracking-tight">Blog</h1>
-  <p class="mt-2 text-text-secondary">Thoughts on software engineering, web development, and more.</p>
-  <div class="mt-8 grid gap-4">
+  <section class="panel mb-8 px-6 py-8 sm:px-8 sm:py-9">
+    <div class="max-w-4xl">
+      <p class="section-kicker">Archive / blog</p>
+      <h1 class="display-title mt-4 text-5xl sm:text-6xl">Thoughts, systems, and things worth keeping.</h1>
+      <p class="lead mt-5 max-w-2xl">
+        Writing on software engineering, product craft, AI workflows, and whatever earns a spot in the permanent notes.
+      </p>
+      <div class="mt-6 flex flex-wrap items-center gap-2">
+        <span class="chip">{posts.length} posts</span>
+        {featuredTags.map((tag) => <span class="chip">{tag}</span>)}
+      </div>
+    </div>
+  </section>
+
+  <div class="grid gap-4">
     {
-      posts.map((post) => (
+      posts.map((post, index) => (
         <BlogCard
           title={post.data.title}
           description={post.data.description}
           pubDate={post.data.pubDate}
           tags={post.data.tags}
           slug={post.id}
+          index={index}
         />
       ))
     }

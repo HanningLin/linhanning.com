@@ -8,27 +8,28 @@ interface Props {
 const { project } = Astro.props;
 ---
 
-<div class="group rounded-xl border border-border p-5 transition-colors hover:bg-card-hover">
-  <h3 class="text-lg font-semibold text-text group-hover:text-accent transition-colors">
+<div class="panel panel-interactive group h-full px-5 py-5 sm:px-6 sm:py-6">
+  <p class="micro-label">Project</p>
+  <h3 class="mt-3 font-display text-3xl leading-none tracking-[-0.05em] text-text group-hover:text-accent-soft transition-colors">
     {project.title}
   </h3>
-  <p class="mt-1.5 text-sm text-text-secondary">
+  <p class="mt-3 text-sm leading-7 text-text-secondary">
     {project.description}
   </p>
-  <div class="mt-3 flex flex-wrap gap-1.5">
+  <div class="mt-4 flex flex-wrap gap-2">
     {project.tags.map((tag) => (
-      <span class="rounded-md bg-tag-bg px-2 py-0.5 text-xs font-medium text-tag-text">
+      <span class="chip">
         {tag}
       </span>
     ))}
   </div>
-  <div class="mt-4 flex gap-3">
+  <div class="mt-6 flex flex-wrap gap-4">
     {project.url && (
       <a
         href={project.url}
         target="_blank"
         rel="noopener noreferrer"
-        class="text-sm font-medium text-accent hover:text-accent-hover transition-colors"
+        class="micro-label text-accent hover:text-accent-hover"
       >
         Live site &rarr;
       </a>
@@ -38,7 +39,7 @@ const { project } = Astro.props;
         href={project.github}
         target="_blank"
         rel="noopener noreferrer"
-        class="text-sm font-medium text-text-secondary hover:text-text transition-colors"
+        class="micro-label hover:text-text"
       >
         GitHub
       </a>

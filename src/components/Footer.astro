@@ -2,12 +2,16 @@
 const year = new Date().getFullYear();
 ---
 
-<footer class="border-t border-border">
-  <div class="mx-auto flex max-w-4xl flex-col items-center gap-4 px-4 py-8 sm:flex-row sm:justify-between">
-    <p class="text-sm text-text-secondary">
-      &copy; {year} Liam Lin. All rights reserved.
-    </p>
-    <div class="flex items-center gap-4">
+<footer class="px-4 pb-6 sm:px-6 lg:px-8">
+  <div class="mx-auto max-w-6xl">
+    <div class="panel flex flex-col gap-5 px-5 py-5 sm:flex-row sm:items-center sm:justify-between sm:px-6">
+      <div>
+        <p class="micro-label">Liam Lin / Journal</p>
+        <p class="mt-2 text-sm text-text-secondary">
+          &copy; {year} Liam Lin. Built for shipping ideas, side projects, and sharper notes.
+        </p>
+      </div>
+      <div class="flex items-center gap-4">
       <a
         href="https://github.com/hanninglin"
         target="_blank"
